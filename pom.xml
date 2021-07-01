@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<packaging>war</packaging>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -11,7 +12,6 @@
 	<groupId>com.totsystems</groupId>
 	<artifactId>testApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
 	<name>testApp</name>
 	<description>Test task from TOT systems</description>
 	<properties>
@@ -54,8 +54,6 @@
 	</dependencies>
 
 	<build>
-		<finalName>awesomeapp</finalName>
-		<defaultGoal>package</defaultGoal>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -65,35 +63,22 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.1.2</version>
 				<executions>
 					<execution>
 						<phase>package</phase>
-						<goals>
-							<goal>copy</goal>
-						</goals>
+						<goals><goal>copy</goal></goals>
 						<configuration>
 							<artifactItems>
 								<artifactItem>
 									<groupId>com.heroku</groupId>
 									<artifactId>webapp-runner</artifactId>
-									<version>9.0.31.0</version>
+									<version>9.0.41.0</version>
 									<destFileName>webapp-runner.jar</destFileName>
 								</artifactItem>
 							</artifactItems>
-							<outputDirectory>artifacts</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
-
-			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>3.3.0</version>
-				<configuration>
-					<goal>war:inplace</goal>
-					<outputDirectory>artifacts</outputDirectory>
-				</configuration>
 			</plugin>
 		</plugins>
 
