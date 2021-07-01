@@ -11,6 +11,7 @@
 	<groupId>com.totsystems</groupId>
 	<artifactId>testApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>testApp</name>
 	<description>Test task from TOT systems</description>
 	<properties>
